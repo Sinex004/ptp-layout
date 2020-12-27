@@ -20,8 +20,25 @@ export const nav = [
   },
   {
     title: "Start",
-    href: "#start",
+    href: "#bottomstart",
     key: "1",
+  },
+];
+export const nav2 = [
+  {
+    title: "How it works?",
+    href: "#how",
+    key: "2",
+  },
+  {
+    title: "About us",
+    href: "#about",
+    key: "3",
+  },
+  {
+    title: "Projects",
+    href: "#projects",
+    key: "4",
   },
 ];
 
@@ -32,19 +49,21 @@ const Navigation = () => {
   const [hide, setHide] = useState(false);
   useEffect(() => {
     setActive("1");
-    setNavs(nav);
+    setNavs(nav2);
   }, []);
 
   const scrollY = useScrollDirection();
 
   useEffect(() => {
-    if (scrollY < 900) setActive("1");
-    else if (scrollY >= 900 && scrollY < 2000) setActive("2");
-    else if (scrollY >= 2000 && scrollY < 2600) setActive("3");
-    else if (scrollY >= 2600 && scrollY < 3600) setActive("4");
-    else if (scrollY >= 3600 && scrollY < 4200) setActive("1");
-    if (scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight - 100 && !hide) setHide(true);
-    else setHide(false);
+    if (scrollY < 900) setNavs(nav2);
+    if (scrollY < 900) setActive("0");
+    if (scrollY > 900) setNavs(nav);
+    if (scrollY >= 900 && scrollY < 2000) setActive("2");
+    else if (scrollY >= 2000 && scrollY < 2900) setActive("3");
+    else if (scrollY >= 2900 && scrollY < 3600) setActive("4");
+    else if (scrollY >= 3600 && scrollY < 4400) setActive("1");
+    // if (scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight - 100 && !hide) setHide(true);
+    // else setHide(false);
   }, [scrollY]);
   return (
     <ul className={`navigation ${hide ? "hide" : ""}`}>

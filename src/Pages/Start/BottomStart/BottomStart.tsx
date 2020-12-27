@@ -10,7 +10,7 @@ const BottomStart = () => {
       className="bottom-background"
       style={{ backgroundImage: `url(${clouds})` }}
     >
-      <div className="bottom-start">
+      <div className="bottom-start" id='bottomstart'>
         <Title />
       </div>
       <div className="bottom-buttons">
